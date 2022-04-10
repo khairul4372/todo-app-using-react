@@ -1,0 +1,85 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  font-size: 16px;
+}
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 10px;
+  padding: 10px;
+  border: 1px solid gray;
+  border-radius: 5px;
+  width: 40%;
+  box-sizing: border-box;
+}
+.note {
+  display: inline;
+}
+form input {
+  margin: 10px;
+  padding: 10px 5px;
+  width: 80%;
+  font-size: 16px;
+  border: 1px solid gray;
+  border-radius: 5px;
+  display: inline;
+  box-sizing: border-box;
+}
+form button {
+  display: block;
+  margin: 10px;
+  padding: 10px 5px;
+  width: 95%;
+  font-size: 16px;
+  background-color: #61acb6;
+  border-color: #4f8f96;
+  color: white;
+  border-radius: 5px;
+
+  box-sizing: border-box;
+}
+.todoItemContainer {
+  width: 40%;
+}
+.todoItemContainer h2 {
+  text-align: center;
+}
+.todoItem {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  border: 1px solid gray;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 5px;
+  box-sizing: border-box;
+  align-items: center;
+}
+.todoItem span {
+  display: inline-block;
+  font-size: 24px;
+  width: 45%;
+}
+.todoItem div {
+  display: flex;
+  width: 20%;
+}
+.todoItem div p {
+  font-size: 24px;
+  margin: 0 0 0 8px;
+}
+.edit {
+  color: rgb(168, 125, 5);
+}
+.complete {
+  color: #28a745;
+  border-radius: 5px;
+}
+.delete {
+  color: red;
+  border-radius: 5px;
+}
