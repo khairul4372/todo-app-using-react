@@ -16,16 +16,28 @@ form {
   width: 40%;
   box-sizing: border-box;
 }
-.note {
-  display: inline;
+.input-container {
+  display: flex;
+  width: 100%;
 }
-form input {
-  margin: 10px;
+.note {
+  margin: 10px 0 10px 10px;
+  display: inline;
   padding: 10px 5px;
-  width: 80%;
+  width: 8%;
+  background-color: #61acb6;
+  border-color: #4f8f96;
+  border-radius: 3px;
+  color: white;
+  font-size: 30px;
+}
+form div input {
+  margin: 10px 10px 10px 0;
+  padding: 10px 5px;
+  width: 85%;
   font-size: 16px;
   border: 1px solid gray;
-  border-radius: 5px;
+  border-radius: 3px;
   display: inline;
   box-sizing: border-box;
 }
@@ -76,7 +88,7 @@ form button {
   color: rgb(168, 125, 5);
 }
 .complete {
-  color: #28a745;
+  color: red;
   border-radius: 5px;
 }
 .delete {

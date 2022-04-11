@@ -10,6 +10,13 @@ export default function Home() {
   const [todoList, setTodoList] = useState([]);
   const [editMode, setEditMode] = useState(false);
   const [todoEditableItem, setTodoEditableItem] = useState(null);
+  const [filteredTodoList, setFilteredTodoList] = useState([]);
+  const filterItem = {
+    all: "all",
+    isComplete: true,
+    isComplete: false,
+  };
+  const [todoFilter, setTodoFilter] = useState(filterItem.all);
 
   const handleTodo = (event) => {
     setTodoTitle(event.target.value);
@@ -69,19 +76,28 @@ export default function Home() {
     });
     setTodoList(filteredTodo); */
   };
+  /*  if (filterItem.isComplete) {
+    setFilteredTodoList(todoList.filter((item) => item.isComplete === true));
+  } else if (!filterItem.isComplete) {
+    setFilteredTodoList(todoList.filter((item) => item.isComplete == false));
+  } else {
+    setFilteredTodoList(todoList);
+  } */
 
   return (
     <div className="container">
       <h2>Todo Input</h2>
       <form action="">
-        <GiNotebook className="note" />
-        <input
-          type="text"
-          name="todoTitle"
-          placeholder="Enter your task"
-          value={todoTitle}
-          onChange={(event) => handleTodo(event)}
-        />
+        <div className="input-container">
+          <GiNotebook className="note" />
+          <input
+            type="text"
+            name="todoTitle"
+            placeholder="Enter your task"
+            value={todoTitle}
+            onChange={(event) => handleTodo(event)}
+          />
+        </div>
         <button
           onClick={
             editMode
@@ -99,8 +115,8 @@ export default function Home() {
             <div key={Math.random()} className="todoItem">
               <span id={todo.id}>{todo.title}</span>
               <div>
-                <p className="complete" onClick={() => {}}>
-                  <GrCheckbox />
+                <p onClick={() => {}}>
+                  <GrCheckbox className="complete" />
                 </p>
                 <p className="edit" onClick={() => editHandler(todo.id)}>
                   <FiEdit />
