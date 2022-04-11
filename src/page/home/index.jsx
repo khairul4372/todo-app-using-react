@@ -1,9 +1,6 @@
 import React, { useState } from "react";
-import { RiDeleteBin6Line } from "react-icons/ri";
-import { GiNotebook } from "react-icons/gi";
-import { GrCheckbox } from "react-icons/gr";
-import { FiEdit, FiCheckSquare } from "react-icons/fi";
 import "./styles.css";
+import TodoList from "../../components/todoList";
 
 export default function Home() {
   const [todoTitle, setTodoTitle] = useState("");
@@ -22,7 +19,7 @@ export default function Home() {
     setTodoTitle(event.target.value);
     console.log(event.target.value);
   };
-  console.log("global" + todoTitle);
+
   const addTodo = (event) => {
     event.preventDefault();
     const todo = {
@@ -51,8 +48,6 @@ export default function Home() {
   };
 
   const updateHandler = (event) => {
-    console.log("update");
-
     event.preventDefault();
 
     const filteredTodo = todoList.map((item) => {
@@ -65,6 +60,17 @@ export default function Home() {
     setEditMode(false);
     setTodoTitle("");
     setTodoEditableItem(null);
+  };
+
+  const cancelHandler = () => {
+    setEditMode(false);
+    setTodoTitle("");
+    setTodoEditableItem(null);
+  };
+
+  const handleClear = () => {
+    //setTodoTitle("");
+    console.log("clear");
   };
 
   const completeHandler = (id) => {
@@ -85,55 +91,17 @@ export default function Home() {
   } */
 
   return (
-    <div className="container">
-      <h2>Todo Input</h2>
-      <form action="">
-        <div className="input-container">
-          <GiNotebook className="note" />
-          <input
-            type="text"
-            name="todoTitle"
-            placeholder="Enter your task"
-            value={todoTitle}
-            onChange={(event) => handleTodo(event)}
-          />
-        </div>
-        <button
-          onClick={
-            editMode
-              ? (event) => updateHandler(event)
-              : (event) => addTodo(event)
-          }
-        >
-          {editMode ? "Update Task" : "Add New Task"}
-        </button>
-      </form>
-      <div className="todoItemContainer">
-        <h2>Todo List</h2>
-        {todoList.map((todo) => {
-          return (
-            <div key={Math.random()} className="todoItem">
-              <span id={todo.id}>{todo.title}</span>
-              <div>
-                <p onClick={() => {}}>
-                  <GrCheckbox className="complete" />
-                </p>
-                <p className="edit" onClick={() => editHandler(todo.id)}>
-                  <FiEdit />
-                </p>
-                <p
-                  className="delete"
-                  onClick={() => {
-                    deleteHandler(todo.id);
-                  }}
-                >
-                  <RiDeleteBin6Line />
-                </p>
-              </div>
-            </div>
-          );
-        })}
-      </div>
-    </div>
+    <TodoList
+      todoTitle={todoTitle}
+      todoList={todoList}
+      editMode={editMode}
+      handleTodo={handleTodo}
+      addTodo={addTodo}
+      deleteHandler={deleteHandler}
+      editHandler={editHandler}
+      updateHandler={updateHandler}
+      cancelHandler={cancelHandler}
+      clearHandler={handleClear}
+    />
   );
 }

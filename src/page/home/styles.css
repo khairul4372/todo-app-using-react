@@ -54,6 +54,14 @@ form button {
 
   box-sizing: border-box;
 }
+.cancelClearContainer {
+  display: flex;
+  width: 100%;
+}
+.cancel {
+  background-color: #ca4219;
+  border-color: #963a1e;
+}
 .todoItemContainer {
   width: 40%;
 }
@@ -94,4 +102,20 @@ form button {
 .delete {
   color: red;
   border-radius: 5px;
+}
+.deleteIcon .show {
+  visibility: hidden;
+  width: 120px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+}
+.deleteIcon:hover .show {
+  visibility: visible;
 }
