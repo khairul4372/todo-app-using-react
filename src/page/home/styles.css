@@ -96,7 +96,7 @@ form button {
   color: rgb(168, 125, 5);
 }
 .complete {
-  color: red;
+  color: green;
   border-radius: 5px;
 }
 .delete {
